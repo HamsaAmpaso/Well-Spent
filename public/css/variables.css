@@ -1,0 +1,17 @@
+:root{
+    --white: #f5e5e5;
+    --white-shadow:#e2d6d6;
+    --cream: #EBE8D8;
+    --cream-shadow: #d8d4be;
+    --teal: #1C3F3A;
+    --light-teal: #275851;
+    --teal-shadow: #16312d;
+    --gray: #bdc7c4;
+    --gray-shadow: #93a09b;
+    --navy: #0A0C29;
+    --navy-shadow: #0A0C29;
+    --black: #1A2322;
+    --heading-font: "Manrope", sans-serif;
+    --body-font: "Inter", sans-serif;
+    --blue: #64748B;
+}

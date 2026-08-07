@@ -1,0 +1,264 @@
+.logged-in-div.report{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vh;
+  
+}
+.logged-in-div.report h2{
+    font-family: var(--heading-font);
+    font-size: clamp(1.2rem, 1.7vw, 1.7rem);
+    color: var(--black);
+    text-align: center;
+    text-shadow: 2px 3px 4px var(--white-shadow);
+    margin-bottom: 1vh;
+}
+.report-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 1fr 200px 200px;
+    grid-template-areas: "total total budget avg transactions remaining"
+                          "busiest busiest highest highest lowest lowest"
+                          "food food transpo transpo housing housing"
+                          "education education health health others others";
+    width: 80%;
+    height: 100%;
+    gap: 1vw;
+    justify-content: center;
+    align-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    background-color: var(--white);
+    animation-name: slide;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+}
+.report-div .square{
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    border: 1px solid var(--gray-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+}
+#total-square{
+    grid-area: total;
+
+}
+#total-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#total-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#budget-square{
+    grid-area: budget;
+}
+#budget-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#budget-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#avg-square{
+    grid-area: avg;
+}
+#avg-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#avg-square  p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#transactions-square{
+    grid-area: transactions;
+}
+#transactions-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#transactions-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#remaining-square{
+    grid-area: remaining;
+}
+#remaining-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#remaining-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+
+
+#busiest-square{
+    grid-area: busiest;
+}
+#busiest-square h4{
+    font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#busiest-square p{
+    font-size: clamp(1.1rem, 2.5vw, 3.5rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#highest-square{
+    grid-area: highest;
+}
+#highest-square h4{
+      font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#highest-square p{
+    font-size: clamp(1.1rem, 2.5vw, 3.5rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#lowest-square{
+    grid-area: lowest;
+}
+#lowest-square h4{
+    font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#lowest-square p{
+    font-size: clamp(1.1rem, 2.5vw, 3.5rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#food-square{
+    grid-area: food;
+}
+#food-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#food-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#transpo-square{
+    grid-area: transpo;
+}
+#transpo-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#transpo-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#housing-square{
+    grid-area: housing;
+}
+#housing-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#housing-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#education-square{
+    grid-area: education;
+}
+#education-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#education-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#health-square{
+    grid-area: health;
+}
+#health-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#health-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#others-square{
+    grid-area: others;
+}
+#others-square h4{
+    font-size: clamp(0.5rem, 1vw, 0.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}
+#others-square p{
+    font-size: clamp(1.5rem, 2vw, 2.8rem);
+    text-align: center;
+    color: var(--teal);
+    font-family: var(--body-font);
+}

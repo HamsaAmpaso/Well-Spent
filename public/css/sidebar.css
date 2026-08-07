@@ -1,0 +1,109 @@
+.sidebar{
+    width: 100%;
+    position: sticky;
+    max-width: 80px;
+    top: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: sidebar;
+    display: none;
+    max-height: 100vh;
+    height: 100%;
+}
+.buttons-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 95%;
+    width: 80%;
+    background-color: var(--teal);
+    border-radius: 5px;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+    flex-direction: column;
+    gap: 2vh;
+    
+}
+.buttons-container .btns{
+    height: 5.5%;
+    width: 70%;
+    border-radius: 3px;
+    background-color: var(--light-teal);
+    box-shadow: 1px 2px 3px var(--teal-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+
+}
+#the-add-expense-btn{
+    margin-top: 2vh;
+    
+}
+.buttons-container .btns svg{
+    fill: var(--white);
+    height: 75%;
+    width: 75%;
+}
+.buttons-container .btns:hover{
+    background-color: var(--cream);
+}
+.buttons-container .btns:hover svg{
+    fill: var(--black);
+    height: 50%;
+    width: 50%;
+}
+.buttons-container .btns::before{
+    content: attr(data-tooltip);
+    position: fixed;
+    background-color: var(--light-teal);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(0.6rem, 1vw, 0.8rem);
+    white-space: nowrap;
+    padding: 0.8em;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    display: none;
+    
+}
+#the-add-expense-btn::before{
+    transform: translateX(-75%);
+
+}
+#view-all-expenses:before{
+    transform: translateX(-72%);
+}
+#view-dashboard::before{
+    transform: translateX(-70%);
+}
+#view-expense-rankings::before{
+    transform: translateX(-68%);
+}
+#view-archived-expenses::before{
+    transform: translateX(-67%);
+}
+#set-preffered-monthly-budget::before{
+    transform: translateX(-75.5%);
+}
+#view-expense-report-per-month::before{
+    transform: translateX(-69.5%);
+}
+#logout-btn::before{
+    transform: translateX(-84%);
+}
+#close-sidebar-btn::before{
+    transform: translateX(-72%);
+}
+.buttons-container .btns:hover::before{
+  display: flex;
+}
+#close-sidebar-btn{
+    display: none;
+}

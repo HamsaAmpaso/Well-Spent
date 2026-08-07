@@ -1,0 +1,180 @@
+.features{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.5vh;
+    margin-bottom: 50px;
+}
+.features p {
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.3vw, 1.5rem);
+    color: var(--teal);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    text-align: center;
+    
+}
+#featuresp {
+    font-weight: 500;
+    color: var(--teal);
+}
+.features h2{
+    font-family: var(--heading-font);
+    font-size: clamp(2.1rem, 3.8vw, 3.8rem);
+    color: var(--black);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    max-width: 700px;
+    text-align: center;
+    line-height: clamp(50px, 10vw, 75px);
+}
+.grid{
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "children-one children-two children-two";
+    gap: 1vw;
+    margin-top: 4vh;
+    min-height: 70vh;
+}
+.children{
+    width: 100%;
+    height: 100%;
+}
+#children-one{
+    grid-area: children-one;
+    background-color: var(--teal);
+}
+#children-two{
+    grid-area: children-two;
+    background-color: var(--gray);
+    border-radius: 0px 0px 0px 170px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+}
+#children-two #globe{
+    width: 40%;
+    height: 45%;
+    object-fit: contain;
+    z-index: 2;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+
+
+}
+.ring{
+    position: absolute;
+    border: 2px solid rgba(0,0,0,.08);
+    border-radius: 50%;
+}
+
+.ring1{
+    width: 900px;
+    height: 900px;
+}
+
+.ring2{
+    width: 650px;
+    height: 650px;
+}
+
+.ring3{
+    width: 420px;
+    height: 420px;
+}
+#plane-pic{
+    position: absolute;
+    height: 50%;
+    align-self: center;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    anchor-name: --plane;
+}
+#children-two .boxes{
+    position: absolute;
+    width: 25%;
+    background-color: var(--teal);
+    z-index: 3;
+    height: 20%;
+    border-radius: 20px;
+    transform: rotate(-5deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#children-two #first{
+    position-anchor: --plane;
+    top: anchor(top);
+    left: calc(anchor(left) - 25%);
+}
+#children-two #second{
+    position-anchor: --plane;
+    top: anchor(top);
+    left: anchor(right);
+}
+.boxes p{
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(0.5rem, 1.1vw, 1.1rem);
+    text-shadow: none;
+    text-align: center;
+    max-width: 200px;
+}
+#children-two #third{
+    position-anchor: --plane;
+    top: calc(anchor(bottom) - 12%);
+    left: calc(anchor(right) + 5%);
+}
+#children-two #well{
+    position: absolute;
+    align-self: flex-start;
+    font-family: var(--body-font);
+    color: var(--teal);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.2vw, 2.2rem);
+    margin-top: 4vh;
+}
+#children-one{
+    background-image: url("../images/arrow.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 0;
+
+}
+#children-one h2{
+    color: var(--white);
+    text-shadow: none;
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: clamp(1rem, 3.2vw, 3.3rem);
+    line-height: clamp(20px, 7vw, 57px);
+    text-align: start;
+    margin-top: 8vh;
+    margin-left: 3vw;
+    
+}
+#children-one:hover{
+    background-image: url("../images/down.png");
+}
+#p, #h2, #pp{
+    opacity: 0;
+}

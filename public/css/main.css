@@ -1,0 +1,10 @@
+main{
+    grid-area: main;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    
+}

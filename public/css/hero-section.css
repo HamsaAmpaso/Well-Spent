@@ -1,0 +1,205 @@
+.hero-section{
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text design";
+    gap: 4vw;
+}
+.hero-text{
+    grid-area: text;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1vh;
+    padding-top: clamp(50px, 5vw, 100px);
+    animation-name: slide;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+    animation-delay: 0.5s;
+}
+.hero-text h1{
+    font-family: var(--heading-font);
+    color: var(--black);
+    text-shadow: 2px 3px 3px var(--white-shadow);
+    font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+    line-height: clamp(50px, 5vw ,95px);
+    max-width: 800px;
+    margin-bottom: 3vh;
+    margin-left: 5vw;
+}
+.hero-text p {
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.3vw, 1.5rem);
+    color: var(--teal);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    align-self: flex-start;
+    margin-left: 5vw;
+    font-weight: 600;
+    max-width: 800px;
+}
+.money{
+    font-style: italic;
+    
+    
+}
+
+#sub-text{
+    font-weight: 300;
+    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+}
+.get-started{
+    width: 25%;
+    height: 9%;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+    background-color: var(--teal);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    align-self: flex-start;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    min-width: 170px;
+    min-height: 50px;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.get-started:hover{
+    background-color: var(--navy);
+    transform: scale(1.1);
+    font-weight: 500;
+}
+.hero-design{
+    grid-area: design;
+    width: 88%;
+    height: 82%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    grid-template-areas: "one two"
+                         "three four";
+    align-items: center;
+    justify-items: center;
+    padding-top: clamp(50px, 5vw, 60px);
+    animation-name: slide2;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+    animation-delay: 0.5s;
+    
+}
+.design-box{
+    height: 100%;
+    width: 100%;
+}
+#one{
+    grid-area: one;
+    background-color: var(--gray);
+    background-image: url("../images/hand-removebg-preview.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation-name: change;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    
+    
+    
+}
+#two{
+    grid-area: two;
+    background-color: var(--cream);
+    border-radius: 150px 0px 0px 150px;
+    box-shadow: 3px 4px 4px var(--white-shadow);
+    display: flex;
+    justify-content:flex-end ;
+    align-items: flex-end;
+    
+}
+#two img{
+    height: 20%;
+    position: absolute;
+    margin-right: 3vw;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+#two p{
+    font-family: var(--body-font);
+    max-width: clamp(100px, 15vw, 250px);
+    font-size: clamp(0.4rem, 1.2vw, 1.2rem);
+    align-self: center;
+    font-weight: 400;
+    position: absolute;
+    margin-right: 3vw;
+    text-shadow: 2px 3px 3px var(--cream-shadow);
+}
+#three{
+    grid-area: three;
+    background-color: var(--navy);
+    border-radius: 0px 150px 0px 0px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    overflow: hidden;
+    position: relative;
+    
+}
+#three img{
+    height: 75%;
+    position: absolute;
+    transform: rotate(-8deg);
+    animation-name: overshoot;
+    animation-duration: 2.5s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+#three p{
+    font-family: var(--body-font);
+    max-width: clamp(100px, 15vw, 250px);
+    font-size: clamp(0.4rem, 1.2vw, 1.2rem);
+    align-self: center;
+    font-weight: 400;
+    position: absolute;
+    margin-right: 4vw;
+    text-shadow: 2px 3px 3px var(--navy-shadow);
+    color: var(--gray);
+    margin-bottom: 9vh;
+}
+#four{
+    grid-area: four;
+    background-color: var(--teal);
+    background-image: url("../images/arrow.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: change2;
+    animation-duration: 2.5s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    background-size: 65%;
+    
+    
+    
+}
+#try{
+    animation-name: beat;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}

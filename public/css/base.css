@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+.overlay{
+    z-index: 16;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    display: none;
+}
+.error{
+    display: none;
+    color: rgb(172, 8, 8);
+    font-family: var(--body-font);
+    font-size: clamp(0.5rem, 1vw, 0.7rem);
+    text-align: center;
+    max-width: 280px;
+}
+.error-box{
+    height: 50%;
+    width: 24%;
+    position: fixed;
+    min-width: 250px;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--teal);
+    border-radius: 10px;
+    box-shadow: 2px 3px 3px var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    z-index: 21;
+    
+}
+.error-box h2{
+    font-family: var(--heading-font);
+    color: var(--white);
+    font-size: clamp(0.9rem, 1.6vw, 1.7rem);
+    text-align: center;
+    max-width: 300px;
+}
+.error-box p{
+    font-family: var(--body-font);
+    color: var(--white);
+    font-size: clamp(0.6rem, 1vw, 1rem);
+    text-align: center;
+    max-width: 300px;
+}
+.error-box button{
+    height: 10%;
+    width: 25%;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--body-font);
+    background-color: var(--cream);
+    box-shadow: 2px 3px 3px var(--teal-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-family: var(--body-font);
+    font-size: clamp(0.7rem, 1vw, 1.1rem);
+}
+.error-box button:hover{
+    transform: scale(1.1);
+    background-color: var(--navy);
+    color: var(--white);
+}
+#confirm-logout{
+    color: var(--white);
+    background-color: var(--navy);
+}
+#confirm-logout:hover{
+    color: var(--black);
+    background-color: var(--cream);
+}

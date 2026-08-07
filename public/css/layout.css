@@ -1,0 +1,21 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 130px 1fr 60vh;
+    background-color: var(--white);
+    grid-template-areas: "header"
+                          "main"
+                          "footer";
+                          overflow-x: hidden;
+
+}
+
+
+footer{
+    grid-area: footer;
+    background-color: var(--white);
+}
+aside{
+    grid-area: sidebar;
+    display: none;
+}

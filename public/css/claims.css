@@ -1,0 +1,87 @@
+.claims{
+    margin-top: 50px;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 80%;
+    gap: 1.5vw;
+    justify-content: center;
+    align-content: center;
+    height: 70%;
+    width: 80%;
+}
+.container .hollow-box{
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5vh;
+    padding: clamp(1rem, 2vw, 2rem);
+    position: relative;
+    opacity: 0;
+}
+.container .hollow-box:hover{
+    background-color: var(--cream);
+    border-radius: 0px 170px 0px 0px;
+}
+.claims p {
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.3vw, 1.5rem);
+    color: var(--teal);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    
+}
+
+.claims h2{
+    font-family: var(--heading-font);
+    font-size: clamp(2.1rem, 3.8vw, 3.8rem);
+    color: var(--black);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    max-width: 700px;
+    text-align: center;
+    line-height: clamp(50px, 10vw, 75px);
+    opacity: 0;
+}
+.claims .hollow-box p{
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    color: var(--blue);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    text-align: start;
+    font-weight: normal;
+    max-width: 350px;
+    line-height: clamp(10px, 5vw, 30px);
+    opacity: 1;
+    
+}
+.claims .hollow-box h3{
+    font-family: var(--heading-font);
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+    color: var(--black);
+    text-shadow: 1px 2px 3px var(--white-shadow);
+    max-width: 700px;
+    opacity: 1;
+    margin: 0;
+    
+}
+.claims .hollow-box img{
+    
+    width: clamp(40px, 5vw, 80px);
+    height: auto;
+}

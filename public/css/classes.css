@@ -1,0 +1,169 @@
+.mobile-nav.show{
+        display: flex;
+}
+.overlay.active{
+    display: flex;
+}
+#featuresp.pop{
+    animation-name: popOut;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#h2.pop{
+    animation-name: popOut;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#pp.pop{
+    animation-name: popOut;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.header.pop{
+    animation-name: popOut;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#children-one.slide{
+    animation-name: slide1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#children-two.slide2{
+    animation-name: slide22;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#claims.pop2{
+    animation-name: popOut;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#make.pop3{
+    animation-name: popOut;
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+#uno.showcase{
+    animation-name: slide1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    
+}
+#dos.showcase{
+    animation-name: slide1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+}
+#tres.showcase{
+    animation-name: slide1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    
+}
+.pic-section.showed{
+    animation-name: slide1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.get-started-grid.showed2{
+    animation-name: slide1;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.input-box.used{
+    top: 50%;
+}
+.error.errored{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-box.showing{
+    top: 50%;
+}
+main.hide{
+    display: none; 
+}
+body.logged-in{
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    grid-template-rows: 130px 1fr 60vh;
+    background-color: var(--white);
+    grid-template-areas: "header sidebar"
+                          "logged-in-div sidebar"
+                          "footer footer";
+                          overflow-x:auto;
+}
+.sidebar.open{
+    display: flex;
+}
+.logged-in-div.logged-in-mode{
+    display: flex;
+
+}
+.nav.hide{
+    display: none;
+}
+#login.hide{
+    display: none;
+}
+.signup.hide{
+    display: none;
+}
+#features-btn.hide{
+    display: none;
+}
+#footer-btn{
+    display: none;
+}
+#login-mobile.hide{
+    display: none;
+}
+#signup-mobile.hide{
+    display: none;
+}
+
+
+
+.header.logged-in-mode{
+    position: static;
+}
+#menu.logged-in{
+    display: none;
+}
+.expense-input-box.show{
+    top: 50%;
+}
+
+
+
+

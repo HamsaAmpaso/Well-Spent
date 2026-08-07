@@ -1,0 +1,118 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes blob {
+    0% {
+        border-radius: 42% 58% 65% 35% / 45% 35% 65% 55%;
+    }
+
+    25% {
+        border-radius: 60% 40% 35% 65% / 55% 70% 30% 45%;
+    }
+
+    50% {
+        border-radius: 35% 65% 55% 45% / 30% 60% 40% 70%;
+    }
+
+    75% {
+        border-radius: 55% 45% 70% 30% / 65% 40% 60% 35%;
+    }
+
+    100% {
+        border-radius: 42% 58% 65% 35% / 45% 35% 65% 55%;
+    }
+}
+@keyframes change{
+    from{
+        
+    }to{
+        background-image: url(../images/bills-removebg-preview.png);
+    }
+}
+@keyframes change2{
+    from{
+        
+    }to{
+        background-image: url(../images/down.png);
+    }
+}
+@keyframes overshoot{
+    from{
+        transform: translateX(-100%) rotate(-8deg);;
+    }
+    to{
+        transform: translateX(0%) rotate(-8deg);
+    }
+}
+@keyframes beat{
+    from{
+        transform: scale(1.0);
+    }50%{
+        transform: scale(1.1);
+    }to{
+        transform: scale(1.0);
+    }
+}
+@keyframes slide{
+    from{
+        opacity: 0;
+        transform: translateX(-100%);
+    }to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes slide2{
+    from{
+        opacity: 0;
+        transform: translateY(100%);
+    }to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@keyframes slide1{
+    from{
+        opacity: 0;
+        transform: translateX(-100%);
+    }to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes slide22{
+    from{
+        opacity: 0;
+        transform: translateY(100%);
+    }to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@keyframes floating{
+    from{
+        transform: translateY(0%);
+    }50%{
+        transform: translateY(-5%);
+    }to{
+        transform: translateY(0%);
+    }
+}
+@keyframes popOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

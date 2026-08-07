@@ -1,0 +1,101 @@
+.logged-in-div.dashboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vh;
+  
+}
+.logged-in-div.dashboard h2{
+    font-family: var(--heading-font);
+    font-size: clamp(1.2rem, 1.7vw, 1.7rem);
+    color: var(--black);
+    text-align: center;
+    text-shadow: 2px 3px 4px var(--white-shadow);
+    margin-bottom: 1vh;
+}
+.dashboard-div{
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 250px;
+  gap: 1vw;
+  justify-content: center;
+  align-content: flex-start;
+  justify-items: flex-start;
+  align-items: flex-start;
+  background-color: var(--white);
+  animation-name: slide;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.dashboard-div .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+    background-color: var(--cream);
+    box-shadow: 2px 3px 4px var(--white-shadow);
+    height: 100%;
+    width: 100%;
+     transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.dashboard-div .content h3{
+    text-align: center;
+    font-family: var(--heading-font);
+    color: var(--teal);
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    text-shadow: 2px 3px 3px var(--cream-shadow);
+    font-weight: 600;
+    max-width: 200px;
+}
+
+.dashboard-div .content p{
+    text-align: center;
+    font-family: var(--body-font);
+    color: var(--black);
+    font-size: clamp(1.5rem, 2.7vw, 2.7rem);
+    text-shadow: 2px 3px 3px var(--cream-shadow);
+    font-weight: 500;
+}
+
+.dashboard-div .content2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vh;
+    background-color: var(--cream);
+    box-shadow: 2px 3px 4px var(--white-shadow);
+    height: 100%;
+    width: 100%;
+     transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.dashboard-div .content2 h3{
+    text-align: center;
+    font-family: var(--heading-font);
+    color: var(--teal);
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    text-shadow: 2px 3px 3px var(--cream-shadow);
+    font-weight: 600;
+    max-width: 200px;
+}
+
+.dashboard-div .content2 p{
+    text-align: center;
+    font-family: var(--body-font);
+    color: var(--black);
+    font-size: clamp(1rem, 1.7vw, 2rem);
+    text-shadow: 2px 3px 3px var(--cream-shadow);
+    font-weight: 500;
+}
+.content:hover{
+  border-radius: 0px 110px 0px 0px;
+}
+.content2:hover{
+  border-radius: 0px 110px 0px 0px;
+}

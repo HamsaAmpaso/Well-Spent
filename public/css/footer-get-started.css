@@ -1,0 +1,85 @@
+.footer-get-started{
+    min-height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+.get-started-grid{
+    width: 80%;
+    height: 75%;
+    background-color: var(--teal);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "large large large small";
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    opacity: 
+    0;
+}
+.large{
+    grid-area: large;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(2.5rem, 5vw, 5rem);
+    gap: 3vh;
+}
+.large h2{
+    font-family: var(--heading-font);
+    color: var(--white);
+    font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+    font-weight: 500;
+    line-height: clamp(40px, 6vw, 80px);
+}
+.large p{
+    font-family: var(--body-font);
+    color: var(--white);
+    font-size: clamp(0.7rem, 1.2vw, 1.2rem);
+}
+.large button{
+    background-color: var(--white);
+    border: none;
+    width: 27%;
+    height: 20%;
+    border-radius: 1000px;
+    font-family: var(--body-font);
+    color: var(--teal);
+    font-size: clamp(0.7rem, 1.2vw, 1.2rem);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    min-height: 50px;
+    min-width: 150px;
+}
+.large button:hover{
+    transform: scale(1.1);
+    background-color: var(--cream);
+}
+.small{
+    grid-area: small;
+    background-color: var(--cream);
+    height: 70%;
+    width: 100%;
+    background-image: url("../images/ph-removebg-preview.png");
+    background-position: bottom ;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position-x: left;
+    border-radius: 0px 190px 0px 0px;
+    position: relative;
+}
+.small #star1{
+    position: absolute;
+    height: 48%;
+    transform: translateY(-95%);
+}
+.small #star2{
+    position: absolute;
+    height: 48%;
+    transform: translate(97%,-95%);
+}

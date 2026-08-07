@@ -1,0 +1,266 @@
+.input-box{
+    height: 70%;
+    width: 23%;
+    background-color: var(--white);
+    z-index: 18;
+    border-radius: 10px;
+    box-shadow: 2px 3px 3px var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    justify-content:center ;
+    align-items: center;
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+}
+.input-box h2{
+    font-family: var(--heading-font);
+    color: var(--black);
+    font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+    text-shadow: 2px 3px 3px var(--white-shadow);
+}
+.input-box label{
+    font-family: var(--body-font);
+    color: var(--black);
+    font-size: clamp(0.7rem, 1vw, 1rem);
+    text-shadow: 2px 3px 3px var(--white-shadow);
+}
+.input-box input{
+    border: none;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+    height: 8%;
+    width: 65% ;
+    border-radius: 5px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.input-box input:focus{
+    background-color: var(--cream);
+}
+.input-box input::placeholder{
+    font-family: var(--body-font);
+    font-size: clamp(0.5rem, 1vw, 0.7rem);
+}
+.input-box button{
+    border: none;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+    height: 8%;
+    width: 55% ;
+    border-radius: 5px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    margin-top: 0.5vh;
+    background-color: var(--teal);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+#cancelbtn{
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    color: var(--black);
+}
+
+.input-box button:hover{
+    background-color: var(--cream);
+    color: var(--black);
+    transform: scale(1.1);
+    border: 1px solid var(--black);
+}
+#cancelbtn:hover{
+    background-color: var(--cream);
+    color: var(--black);
+    transform: scale(1.1);
+}
+#cancelbtn-signup{
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    color: var(--black);
+}
+#cancelbtn-signup:hover{
+    background-color: var(--cream);
+    color: var(--black);
+    transform: scale(1.1);
+}
+
+.expense-input-box{
+    height: 80%;
+    width: 23%;
+    background-color: var(--white);
+    z-index: 18;
+    border-radius: 10px;
+    box-shadow: 2px 3px 3px var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    justify-content:center ;
+    align-items: center;
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+}
+.expense-input-box h2{
+    font-family: var(--heading-font);
+    color: var(--black);
+    font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+    text-shadow: 2px 3px 3px var(--white-shadow);
+}
+.expense-input-box label{
+    font-family: var(--body-font);
+    color: var(--black);
+    font-size: clamp(0.7rem, 1vw, 1rem);
+    text-shadow: 2px 3px 3px var(--white-shadow);
+}
+.expense-input-box input{
+    border: none;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+    height: 7%;
+    width: 65% ;
+    border-radius: 5px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.expense-input-box input:focus{
+    background-color: var(--cream);
+}
+.expense-input-box input::placeholder{
+    font-family: var(--body-font);
+    font-size: clamp(0.5rem, 1vw, 0.7rem);
+}
+.expense-input-box button{
+    border: none;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+    height: 7%;
+    width: 55% ;
+    border-radius: 5px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    margin-top: 0.5vh;
+    background-color: var(--teal);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+#cancel-add-expense{
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    color: var(--black); 
+}
+.expense-input-box button:hover{
+    background-color: var(--cream);
+    color: var(--black);
+    transform: scale(1.1);
+    border: 1px solid var(--black);
+}
+#cancel-add-expense:hover{
+    background-color: var(--cream);
+    color: var(--black);
+    transform: scale(1.1);
+}
+
+.expense-input-box .list{
+    width: 55% ;
+    height: auto;
+    background-color: var(--white);
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    opacity: 0.9;
+    transform: translateY(-28%);
+    display: none;
+    border-radius: 5px;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+
+}
+.list li{
+    width: 100%;
+    padding: clamp(0.5rem, 1vw, 1rem);
+    font-family: var(--body-font);
+    color: var(--black);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-size: clamp(0.5rem, 1vw , 1rem);
+}
+.list li:hover{
+    background-color: rgb(224, 215, 215);
+}
+
+.expense-input-box .list2{
+    width: 55% ;
+    height: auto;
+    background-color: var(--white);
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    opacity: 0.9;
+    transform: translateY(-28%);
+    display: none;
+    border-radius: 5px;
+    box-shadow: 2px 3px 3px var(--white-shadow);
+
+}
+.list2 li{
+    width: 100%;
+    padding: clamp(0.5rem, 1vw, 1rem);
+    font-family: var(--body-font);
+    color: var(--black);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-size: clamp(0.5rem, 1vw , 1rem);
+}
+.list2 li:hover{
+    background-color: rgb(224, 215, 215);
+}
+
+
+.expense-input-box .list2.using{
+    display: flex;
+}
+.expense-input-box .list.using{
+    display: flex;
+}
+#cancel-edit-expense{
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    color: var(--black);
+}
+#cancel-edit-expense:hover{
+    background-color: var(--cream);
+}
+#budget-box h2{
+    max-width: 300px;
+    text-align: center;
+}
+#cancelbtn-budget{
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+#cancelbtn-budget:hover{
+    background-color: var(--cream);
+}

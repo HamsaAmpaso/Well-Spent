@@ -1,0 +1,13 @@
+import express from 'express';
+import { asyncControllerHandler } from '../async-controller-handler.js';
+import { signupController } from './auth.controllers.js';
+import { signupSchema } from './auth.validation.js';
+import { validator } from './auth.validation.js';
+import { loginController } from './auth.controllers.js';
+import { logoutController } from './auth.controllers.js';
+import { refreshMidlleware } from './refresh-token-middleware.js';
+export const authRoutes = express.Router();
+authRoutes.post('/signup', validator(signupSchema), asyncControllerHandler(signupController));
+authRoutes.post('/login', asyncControllerHandler(loginController));
+authRoutes.get('/logout', asyncControllerHandler(logoutController));
+authRoutes.post('/refresh', refreshMidlleware);

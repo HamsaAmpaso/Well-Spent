@@ -1,0 +1,38 @@
+.pic-section{
+    height: 60vh;
+    background-image: url("../images/silk.png");
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 90%;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    opacity: 0;
+    
+    
+}
+.pic-section .columns{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start ;
+    flex-direction: column;
+    padding: clamp(1rem, 2vw, 2rem);
+}
+.pic-section .columns h2{
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(2rem, 5vw, 5rem);
+
+
+}
+.pic-section .columns p{
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+}

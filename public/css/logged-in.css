@@ -1,0 +1,7 @@
+.logged-in-div{
+    grid-area: logged-in-div;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--white);
+    display: none;
+}

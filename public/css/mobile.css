@@ -1,0 +1,362 @@
+@media (max-width: 768px){
+    header img{
+        margin-left: 0vw;
+    }
+    body{
+        grid-template-rows: 100px 1fr 100vh;
+    }
+    header{
+        max-height: 100px;
+    }
+    header button{
+        display: none;
+    }
+    header nav{
+        display: none;
+    }
+    header #menu{
+        display: flex;
+        max-height: 50px;
+    }
+    .hero-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0vh;
+    }
+    .hero-text h1{
+        line-height: 65px;
+        margin-bottom: 2vh;
+    }
+    .hero-text p{
+        font-size: 1rem;
+    }
+    #sub-text{
+        max-width: 400px;
+    }
+    .hero-text{
+        padding-top: 30px;
+    }
+    .hero-design{
+        height: 100%;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        
+    }
+    #two, #three, #three, #four{
+        border-radius: 0px;
+        
+    }
+    .design-box{
+        width: 100%;
+        min-height: 350px;
+        
+    }
+    #two{
+        position: relative;
+        border-radius: 170px 0px 0px 0px;
+    }
+    #three{
+        border-radius: 0px 170px 0px 0px;
+    }
+    #two img{
+        height: 35%;
+        margin-right: 7vw;
+    }
+    #two p{
+        font-size: 1.5rem;
+        max-width: 330px;
+        align-self: center;
+        margin-right: 50px;
+    }
+    #three p{
+        font-size: 1.5rem;
+        max-width: 330px;
+        align-self: center;
+        margin-right: 50px;
+        margin-bottom: 13vh;
+    }
+    .features{
+        padding-top: 50px;
+        padding-bottom: 0px;
+    }
+    .grid{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0vh;
+        margin-top: 50px;
+        
+    }
+    #children-one{
+        border-radius: 0px 0px 170px 0px;
+    }
+    .children{
+        min-height: 350px;
+    }
+    #one{
+         border-radius: 0px 0px 170px 0px;
+    }
+    #four{
+        border-radius: 0px 0px 0px 170px;
+        background-size: 40%;
+    }
+    #children-one h2{
+        display: none;
+    }
+    #children-one{
+        background-position: center;
+        background-size: 60%;
+    }
+    .claims .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .claims{
+        gap: 5vh;
+    }
+    .claims .container .hollow-box{
+        height: 300px;
+    }
+
+    .pic-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .pic-section .columns{
+        width: 100%;
+        height: 33%;
+    }
+    .get-started-grid{
+        grid-template-columns: 1fr;
+        grid-auto-rows: 100%;
+        grid-template-areas: "large"
+                              "small";
+        background-image: url("../images/image-removebg-preview.png");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 35%;
+        background-position-x: right;
+        height: 90%;
+    }
+    .large button{
+        max-height: 50px;
+    }
+    .small{
+        display: none;
+    }
+    .footer-get-started{
+        padding-bottom: 50px;
+    }
+    footer .top{
+        
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 33%;
+        height: 95%;
+        gap: 3vh;
+        margin-bottom: 50px;
+    }
+    footer{
+        height: 100vh;
+        margin-top: 50px;
+    }
+    footer .bottom{
+        height: 5%;
+        padding-bottom: 80px;
+    }
+    .input-box{
+        gap: 2vh;
+    }
+   
+    .sidebar{
+        max-height: 100vh;
+        position: fixed;
+        right: -100%;
+        box-shadow: none;
+        
+
+    }
+    .header.logged-in-mode{
+        position: sticky;
+    }
+    .buttons-container{
+        height: 95%;
+        border-radius: 5px;
+        width: 75%;
+    }
+    .sidebar.open.opened{
+        right: 0%;
+        box-shadow: none;
+
+    }
+    body.logged-in{
+        grid-template-areas: "header header"
+                          "logged-in-div logged-in-div"
+                          "footer footer";
+    }
+    #open-sidebar-btn.logged-in{
+        display: flex;
+    }
+    #open-sidebar-btn.logged-in.hide{
+    display: none;
+    }
+    body.logged-in.sidebar-opened{
+        grid-template-areas: "header header"
+                          "logged-in-div logged-in-div"
+                          "footer footer";
+    }
+    #close-sidebar-btn{
+    display: flex;
+    }
+    #the-add-expense-btn::before{
+    transform: translateX(-82%);
+
+    }
+    #view-all-expenses:before{
+    transform: translateX(-78%);
+    }
+    #view-dashboard::before{
+    transform: translateX(-75%);
+    }
+    #view-expense-rankings::before{
+    transform: translateX(-73%);
+    }
+    #view-archived-expenses::before{
+    transform: translateX(-72%);
+    }
+    #set-preffered-monthly-budget::before{
+    transform: translateX(-82%);
+    }
+    #view-expense-report-per-month::before{
+    transform: translateX(-75%);
+    }
+    #logout-btn::before{
+    transform: translateX(-94%);
+    }
+    #close-sidebar-btn::before{
+    transform: translateX(-78%);
+    }
+    .error-box p{
+    
+    max-width: 200px;
+    }
+    .error-box{
+        gap: 2vh;
+        
+    }
+    #footer-btn{
+        display: block;
+    }
+
+    .expense-input-box{
+        padding: 1em;
+    }
+
+    .expenses-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 80%;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: center;
+        justify-items: center;
+        column-gap: 3vw;
+        row-gap: 4vw;
+
+    }
+    .expenses-container .expense{
+        width: 100%;
+    }
+    .expense-bottom p{
+        font-size: 0.7rem;
+    }
+    .expense-bottom{
+        gap: 1.2vw;
+    }
+    .logged-in-div.view-expenses{
+        padding-bottom: 50px;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 0px;
+    }
+    .expenses-container .expense  .buttons{
+        gap: 1vw;
+    }
+    .logged-in-div.archives{
+        padding-bottom: 50px;
+        justify-content: flex-start;
+    }
+    .dashboard-div{
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 200px;
+        padding-bottom: 50px;
+        gap: 3vw;
+    }
+    .dashboard-div .content2 p{
+        font-size: 1.1rem;
+    }
+    .dashboard-div .content2 h3{
+        max-width: 150px;
+    }
+    .dashboard-div .content h3{
+         max-width: 150px;
+    }
+    .rankings-div{
+        width: 90%;
+    }
+    .rankings-div .entry p{
+        max-width: 80px;
+    }
+    .archives-div{
+        width: 90%;
+    }
+    .archives-div .slot p{
+        max-width: 60px;
+    }
+    .archives-div .slot .restore-btn{
+        height: 35px;
+        width: 45px;
+    }
+   
+    .report-div{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: 200px;
+        grid-template-areas: "total budget"
+                             "avg transactions"
+                             "remaining busiest"
+                            "highest lowest"
+                             "food transpo"
+                             "housing education"
+                             "health others";
+        justify-content: center;
+        align-content: center;
+        justify-items: center;
+        align-items: center;
+        height: auto;
+        gap: 3vw;
+
+    }
+
+    
+   
+
+
+
+
+
+   
+}
