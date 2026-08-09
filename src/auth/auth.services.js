@@ -133,7 +133,7 @@ export async function logoutService(refreshToken){
              logout: false
             }
        }
-       const userid = isMatch.userid;
+       const userid = isMatch.user;
        await logoutRepository(userid);
        return {
         success: true,

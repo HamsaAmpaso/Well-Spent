@@ -101,6 +101,15 @@
 #close-sidebar-btn::before{
     transform: translateX(-72%);
 }
+#admin-dashboard::before{
+    transform: translateX(-72%);
+}
+#admin-dashboard{
+    display: none;
+}
+#admin-dashboard.logged-in{
+    display: flex;
+}
 .buttons-container .btns:hover::before{
   display: flex;
 }

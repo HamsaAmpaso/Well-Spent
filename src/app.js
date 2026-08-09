@@ -134,6 +134,8 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
    const closeReportError = document.querySelector(".ok-report");
    const viewReportBTN = document.querySelector("#view-expense-report-per-month");
 
+   const adminDashboardBTN = document.querySelector("#admin-dashboard");
+
    viewReportBTN.addEventListener("click", async ()=>{
      try{
         sidebar.classList.remove("opened");
@@ -1294,6 +1296,12 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
             loginDiv.innerHTML = "";
             loginDiv.classList.remove("view-expenses");
             loginDiv.classList.remove("dashboard");
+            loginDiv.classList.remove("rankings");
+            loginDiv.classList.remove("report");
+            loginDiv.classList.remove("archives");
+            loginDiv.classList.remove("monthly");
+            adminDashboardBTN.classList.remove("logged-in");
+
         }
 
       }catch(err){
@@ -1491,6 +1499,9 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
         menu.classList.add("logged-in");
         openSidebarBTN.classList.add("logged-in");
     }
+    if(registration.role === "admin"){
+        adminDashboardBTN.classList.add("logged-in");
+    }
 
     signupUsernameError.textContent = "";
     signupUsernameError.classList.remove("errored");
@@ -1561,6 +1572,9 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
         footerBTN.classList.add("hide");
         menu.classList.add("logged-in");
         openSidebarBTN.classList.add("logged-in");
+    }
+    if(loggingin.role === "admin"){
+        adminDashboardBTN.classList.add("logged-in");
     }
     getExpenseWrapper();
 

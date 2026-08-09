@@ -27,7 +27,8 @@ export async function signupController(req, res ,next){
             signup: registering.signup,
             success: registering.success,
             userAlreadyExists: registering.userAlreadyExists,
-            validationError: registering.validationError
+            validationError: registering.validationError,
+            role: registering.role
         }
         res.status(201).json(registering2);
     }catch(err){
@@ -62,7 +63,8 @@ export async function loginController(req, res, next){
             success: loggingin.success,
             userDoesNotExists: loggingin.userDoesNotExists,
             validationError: loggingin.validationError,
-            wrongPassword: loggingin.wrongPassword
+            wrongPassword: loggingin.wrongPassword,
+            role: loggingin.role
         }
         res.status(200).json(loggingin2);
 
