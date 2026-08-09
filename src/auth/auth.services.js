@@ -49,7 +49,8 @@ export async function signupService(username, password){
             userAlreadyExists: false,
             accessToken: accessToken,
             refreshToken: refreshToken,
-            validationError: false
+            validationError: false,
+            role: user.rows[0].role
         };
 
 
@@ -113,7 +114,8 @@ export async function loginService(username, password){
                accessToken: accessToken,
                refreshToken: refreshToken,
                validationError: false,
-               wrongPassword: false
+               wrongPassword: false,
+               role: user.rows[0].role
         }
 
     }catch(err){
