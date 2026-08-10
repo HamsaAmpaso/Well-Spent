@@ -19,6 +19,8 @@ export function centralizedErrorMiddleware(err, res, req, next){
         archives: false,
         restore: false,
         budget: false,
-        monthlyReport: false
+        monthlyReport: false,
+        users: false,
+        ban: false
     });
 }

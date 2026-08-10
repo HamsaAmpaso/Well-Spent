@@ -769,4 +769,127 @@ export async function thisMonthReportAPICaller(){
     }
 }
 
+export async function getUSersAPICaller(){
+    try{
+        const response = await fetch(`http://127.0.0.1:3000/api/users`, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        if(data.tokenExpired){
+          const refreshing = await refreshAPICaller();
+          if(!refreshing.success && !refreshing.noRefreshToken && !refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+          if(!refreshing.success && !refreshing.noRefreshToken && refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+          if(!refreshing.success && refreshing.noRefreshToken && !refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+        const response2 = await await fetch(`http://127.0.0.1:3000/api/users`, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const data2 = await response2.json();
+        console.log("refreshed-budget-expense");
+        console.log(response2.status);
+        console.log(data2);
+        data2.forErrorBox = false;
+        return data2;
+
+
+        }
+        if(!response.ok){
+          data.forErrorBox = true;
+          return data;
+        }
+       
+        data.forErrorBox = false;
+        return data;
+
+
+    }catch(err){
+        return {
+            success: false,
+            users: false,
+            forErrorBox: true
+        }
+    }
+}
+export async function banUserAPICaller(userid){
+    try{
+        const response = await fetch(`http://127.0.0.1:3000/api/users/${userid}`, {
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        if(data.tokenExpired){
+          const refreshing = await refreshAPICaller();
+          if(!refreshing.success && !refreshing.noRefreshToken && !refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+          if(!refreshing.success && !refreshing.noRefreshToken && refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+          if(!refreshing.success && refreshing.noRefreshToken && !refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+        const response2 = await await fetch(`http://127.0.0.1:3000/api/users/${userid}`, {
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const data2 = await response2.json();
+        console.log("refreshed-budget-expense");
+        console.log(response2.status);
+        console.log(data2);
+        data2.forErrorBox = false;
+        return data2;
+
+
+        }
+
+        if(!response.ok){
+          data.forErrorBox = true;
+          return data;
+        }
+       
+        data.forErrorBox = false;
+        return data;
+
+    }catch(err){
+        return {
+            success: false,
+            ban: false,
+            forErrorBox: true
+        }
+    }
+}
+
 

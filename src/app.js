@@ -11,6 +11,8 @@ import { archivedAPICaller } from "./api-callers.js";
 import { restoreExpenseAPICaller } from "./api-callers.js";
 import { updateBudgetAPICaller } from "./api-callers.js";
 import { thisMonthReportAPICaller } from "./api-callers.js";
+import { getUSersAPICaller } from "./api-callers.js";
+import { banUserAPICaller } from "./api-callers.js";
 
 (()=>{
    const nav = document.querySelector(".mobile-nav");
@@ -134,7 +136,143 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
    const closeReportError = document.querySelector(".ok-report");
    const viewReportBTN = document.querySelector("#view-expense-report-per-month");
 
+   const banErrorBox = document.querySelector("#ban-error-box");
+   const closeBanErrorBox = document.querySelector(".ok-ban");
+
    const adminDashboardBTN = document.querySelector("#admin-dashboard");
+   const usersErrorBox = document.querySelector("#users-error-box");
+   const closeUsersErrorBox = document.querySelector(".ok-users");
+   const role = localStorage.getItem("role");
+   if(role === "admin"){
+     adminDashboardBTN.classList.add("logged-in");
+
+
+     
+   }
+
+   closeBanErrorBox.addEventListener("click", ()=>{
+    banErrorBox.classList.remove("showing");
+    overlay.classList.remove("active");
+   })
+
+
+   adminDashboardBTN.addEventListener("click", () =>{
+    getUSersAPICallerWrapper();
+    sidebar.classList.remove("opened");
+    openSidebarBTN.classList.remove("hide");
+    bodyElement.classList.remove("sidebar-opened");
+   });
+
+
+   async function getUSersAPICallerWrapper(){
+    try{
+       const users = await getUSersAPICaller();
+       if(!users.success && !users.users && users.forErrorBox){
+        usersErrorBox.classList.add("showing");
+        overlay.classList.add("active");
+        sidebar.classList.remove("opened");
+        openSidebarBTN.classList.remove("hide");
+        bodyElement.classList.remove("sidebar-opened");
+        return;
+       }
+       usersRenderer(users.rows);
+    }catch(err){
+       usersErrorBox.classList.add("showing");
+       overlay.classList.add("active");
+       sidebar.classList.remove("opened");
+       openSidebarBTN.classList.remove("hide");
+       bodyElement.classList.remove("sidebar-opened");
+
+    }
+   }
+   closeUsersErrorBox.addEventListener("click", ()=>{
+       usersErrorBox.classList.remove("showing");
+       overlay.classList.remove("active");
+   })
+
+
+
+   
+   function usersRenderer(arr){
+       loginDiv.innerHTML = "";
+       loginDiv.classList.remove("view-expenses");
+       loginDiv.classList.remove("dashboard");
+       loginDiv.classList.remove("rankings");
+       loginDiv.classList.remove("archives");
+       loginDiv.classList.add("users");
+       const title = document.createElement("h2");
+       title.textContent = 'Well Spent Users';
+       loginDiv.appendChild(title);
+       const rankings_container = document.createElement("div");
+       rankings_container.classList.add("users-div");
+       loginDiv.appendChild(rankings_container);
+       arr.forEach((a)=>{
+           const entry = document.createElement("div");
+           entry.classList.add("slot");
+           rankings_container.appendChild(entry);
+           
+           const day = document.createElement("p");
+          
+           day.textContent = `Name: ${a.username}`;
+           entry.appendChild(day);
+           const amount = document.createElement("p");
+           amount.textContent = `Role: ${a.role}`;
+           entry.appendChild(amount);
+           const category = document.createElement("p");
+           category.textContent = `Monthly Budget: ${a.monthlybudget}`;
+           entry.appendChild(category);
+           const btn = document.createElement("div");
+           btn.classList.add("ban-btn");
+           btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M640-520v-80h240v80H640Zm-393-7q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q440-607 440-640t-23.5-56.5Q393-720 360-720t-56.5 23.5Q280-673 280-640t23.5 56.5Q327-560 360-560t56.5-23.5ZM360-640Zm0 400Z"/></svg>`;
+           btn.dataset.id = a.userid;
+           entry.appendChild(btn);
+           btn.addEventListener("click", async ()=>{
+              try{
+                const banning = await banUserAPICaller(btn.dataset.id);
+                if(!banning.success && !banning.ban && banning.forErrorBox){
+                     banErrorBox.classList.add("showing");
+                     overlay.classList.add("active");
+                     return;
+                }
+                getUSersAPICallerWrapper();
+              }catch(err){
+                banErrorBox.classList.add("showing");
+                overlay.classList.add("active");
+              }
+           });
+          
+       });
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    viewReportBTN.addEventListener("click", async ()=>{
      try{
@@ -1301,6 +1439,7 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
             loginDiv.classList.remove("archives");
             loginDiv.classList.remove("monthly");
             adminDashboardBTN.classList.remove("logged-in");
+            loginDiv.classList.remove("users");
 
         }
 
@@ -1501,6 +1640,7 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
     }
     if(registration.role === "admin"){
         adminDashboardBTN.classList.add("logged-in");
+        localStorage.setItem("role", "admin");
     }
 
     signupUsernameError.textContent = "";
@@ -1575,6 +1715,7 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
     }
     if(loggingin.role === "admin"){
         adminDashboardBTN.classList.add("logged-in");
+        localStorage.setItem("role", "admin");
     }
     getExpenseWrapper();
 
@@ -1800,6 +1941,10 @@ import { thisMonthReportAPICaller } from "./api-callers.js";
     budgetinput.value = "";
     budgetErrorBox.classList.remove("showing");
     reportError.classList.remove("showing");
+    usersErrorBox.classList.remove("showing");
+    banErrorBox.classList.remove("showing");
+    
+
     
    });
 

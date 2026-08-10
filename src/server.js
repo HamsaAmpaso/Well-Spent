@@ -7,6 +7,7 @@ import { centralizedErrorMiddleware } from './centralized-error-middleware.js';
 import cookieParser from 'cookie-parser';
 import { authRoutes } from './auth/auth.routes.js';
 import { userRoutes } from './user/user.routes.js';
+import { adminRoutes } from './admin/admin.routes.js';
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -16,6 +17,7 @@ app.use(cors({
 app.use(cookieParser());
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
+app.use('/api', adminRoutes);
 app.use(centralizedErrorMiddleware);
 async function startServer(){
     try{
