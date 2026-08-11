@@ -1671,6 +1671,13 @@ import { banUserAPICaller } from "./api-callers.js";
 
     const loggingin = await loginAPICallerWrapper(username, password);
     if(!loggingin)return;
+    if(loggingin.attempts && !loggingin.success){
+        usernameError.textContent = 'Too many log in attempts. Please try again later!';
+        usernameError.classList.add("errored");
+        loginUsernameInput.value = "";
+        loginPasswordInput.value = "";
+        return;
+    }
     if(loggingin.userDoesNotExists){
         usernameError.textContent = "This user does not exists!";
         usernameError.classList.add("errored");
