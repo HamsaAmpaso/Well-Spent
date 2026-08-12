@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import { addExpenseController } from './user.controllers.js';
 import { expenseSchema } from './user.validation.js';
@@ -14,7 +16,9 @@ import { restoreExpenseController } from './user.controllers.js';
 import { updateMonthlyBudgetController } from './user.controllers.js';
 import { thisMonthReportController } from './user.controllers.js';
 import { authorize } from '../authorization.js';
+import { checkOrigin } from '../origin-checker-middleware.js';
 export const userRoutes = express.Router();
+userRoutes.use(checkOrigin);
 userRoutes.post('/expenses', authenticationMiddleware, authorize("user", "admin"), validator(expenseSchema), asyncControllerHandler(addExpenseController));
 userRoutes.get('/expenses', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(getExpensesController));
 userRoutes.delete('/expenses/:id', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(deleteExpenseController));
