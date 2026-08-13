@@ -12,14 +12,14 @@ export async function signupController(req, res ,next){
         }
         res.cookie("accessToken", registering.accessToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 
 
         });
         res.cookie("refreshToken", registering.refreshToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 
         });
@@ -46,14 +46,14 @@ export async function loginController(req, res, next){
         }
         res.cookie("accessToken", loggingin.accessToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 
 
         });
         res.cookie("refreshToken", loggingin.refreshToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 
         });

@@ -36,7 +36,7 @@ export async function refreshMidlleware(req, res, next){
         };
 
         const newAccessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_JWT_SECRET, {
-            expiresIn: "1m"
+            expiresIn: "15m"
         });
         const newRefereshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_JWT_SECRET, {
             expiresIn: "30d"
@@ -47,14 +47,14 @@ export async function refreshMidlleware(req, res, next){
 
          res.cookie("accessToken", newAccessToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 
 
         });
         res.cookie("refreshToken", newRefereshToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             sameSite: "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000 
         });

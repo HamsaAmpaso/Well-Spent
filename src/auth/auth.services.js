@@ -2,11 +2,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import { Resend } from 'resend';
 import { signupRepository } from './auth.repositories.js';
 import { getUserByUsernameRepository } from './auth.repositories.js';
 import { insertRefreshToken } from './auth.repositories.js';
 import { loginRepository } from './auth.repositories.js';
 import { logoutRepository } from './auth.repositories.js';
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function signupService(username, password){
     try{
@@ -38,10 +40,16 @@ export async function signupService(username, password){
        });
        const hashedRefreshToken = await bcrypt.hash(refreshToken, 12);
        const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_JWT_SECRET, {
-        expiresIn: "1m"
+        expiresIn: "15m"
        });
 
        await insertRefreshToken(hashedRefreshToken, user.rows[0].userid);
+       const {data, error} = await resend.emails.send({
+        from: "onboarding@resend.dev",
+        to:[username],
+        subject: "Well Spent Account Registration",
+        text: `Hello ${username} you have successfully created your well spent account thankyou!`
+       });
 
         return {
             signup: true,
@@ -96,7 +104,7 @@ export async function loginService(username, password){
         }
 
         const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_JWT_SECRET, {
-            expiresIn: "1m"
+            expiresIn: "15m"
         });
 
         const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_JWT_SECRET, {

@@ -1,6 +1,6 @@
 import {z} from 'zod';
 export const signupSchema = z.object({
-    username: z.string().min(3).max(30).refine(value => !value.includes(" "), {message: "Username cannot contain spaces"}),
+    username: z.string().min(3).max(30).refine(value => !value.includes(" "), {message: "Username cannot contain spaces"}).email(),
     password: z.string().min(8).max(20).regex(/[A-Z]/, "Must Contain a capital letter").regex(/[0-9]/, "Must contain a number")
 });
 export function validator(schema){

@@ -1440,6 +1440,7 @@ import { banUserAPICaller } from "./api-callers.js";
             loginDiv.classList.remove("monthly");
             adminDashboardBTN.classList.remove("logged-in");
             loginDiv.classList.remove("users");
+            localStorage.setItem("role", "none");
 
         }
 
