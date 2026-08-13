@@ -1,5 +1,5 @@
 export function centralizedErrorMiddleware(err, res, req, next){
-    res.status(500).json({
+    return res.status(500).json({
         success: false,
         message: "Error from centralizzed error middleware!",
         userAlreadyExists: false,

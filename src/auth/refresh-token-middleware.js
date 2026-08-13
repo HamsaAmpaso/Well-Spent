@@ -4,6 +4,21 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { getRefreshToken } from './auth.repositories.js';
 import { insertRefreshToken } from './auth.repositories.js';
+const getDynamicCookieOptions = (req) => {
+    const origin = req.headers.origin || "";
+    
+    // Check if the request is coming from your local machine
+    const isLocal = origin.includes("localhost") || origin.includes("127.0.0.1") || req.hostname === "localhost" || req.hostname === "127.0.0.1";
+
+    return {
+        httpOnly: true,
+        // Local (http) = false, Cloudflare (https) = true
+        secure: !isLocal,
+        // Local (http) = 'lax', Cloudflare (https) = 'none'
+        sameSite: isLocal ? "lax" : "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    };
+};
 export async function refreshMidlleware(req, res, next){
     try{
         const refreshToken = req.cookies.refreshToken;
@@ -45,19 +60,8 @@ export async function refreshMidlleware(req, res, next){
 
         await insertRefreshToken(hashedNewRefreshToken, decodedRefreshToken.user);
 
-         res.cookie("accessToken", newAccessToken, {
-            httpOnly: true,
-            secure: true,
-            sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000 
-
-        });
-        res.cookie("refreshToken", newRefereshToken, {
-            httpOnly: true,
-            secure: true,
-            sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000 
-        });
+         res.cookie("accessToken", newAccessToken, getDynamicCookieOptions(req));
+        res.cookie("refreshToken", newRefereshToken, getDynamicCookieOptions(req));
 
 
         res.status(200).json({

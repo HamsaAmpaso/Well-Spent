@@ -12,8 +12,11 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   'https://well-spent.hamsaampaso1.workers.dev',
+  'http://127.0.0.1:5500', // <-- THIS WAS MISSING
+  'http://localhost:5500',
   'http://127.0.0.1:3000',
   'http://localhost:3000',
+  'http://127.0.0.1:5173',
   'http://localhost:5173'
 ];
 
@@ -32,14 +35,14 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   res.header('Access-Control-Allow-Private-Network', 'true');
   
   if (req.method === 'OPTIONS') {
     return res.sendStatus(204);
   }
   next();
-});
+});*/
 app.use(cookieParser());
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
