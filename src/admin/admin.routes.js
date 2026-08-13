@@ -8,6 +8,6 @@ import { getUsersController } from './admin.controllers.js';
 import { banUserController } from './admin.controllers.js';
 import { checkOrigin } from '../origin-checker-middleware.js';
 export const adminRoutes = express.Router();
-adminRoutes.use(checkOrigin);
+//adminRoutes.use(checkOrigin);
 adminRoutes.get('/users', authenticationMiddleware, authorize("admin"), asyncControllerHandler(getUsersController));
 adminRoutes.delete('/users/:id', authenticationMiddleware, authorize("admin"), asyncControllerHandler(banUserController));

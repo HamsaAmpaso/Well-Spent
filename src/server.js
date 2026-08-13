@@ -10,10 +10,36 @@ import { userRoutes } from './user/user.routes.js';
 import { adminRoutes } from './admin/admin.routes.js';
 const app = express();
 app.use(express.json());
+const allowedOrigins = [
+  'https://well-spent.hamsaampaso1.workers.dev',
+  'http://127.0.0.1:3000',
+  'http://localhost:3000',
+  'http://localhost:5173'
+];
+
+// Configure CORS middleware
 app.use(cors({
-    origin: "http://127.0.0.1:5500",
-    credentials: true
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, or postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS policy: Origin not allowed'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Private-Network', 'true');
+  
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
 app.use(cookieParser());
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);

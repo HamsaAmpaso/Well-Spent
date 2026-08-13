@@ -18,7 +18,7 @@ import { thisMonthReportController } from './user.controllers.js';
 import { authorize } from '../authorization.js';
 import { checkOrigin } from '../origin-checker-middleware.js';
 export const userRoutes = express.Router();
-userRoutes.use(checkOrigin);
+//userRoutes.use(checkOrigin);
 userRoutes.post('/expenses', authenticationMiddleware, authorize("user", "admin"), validator(expenseSchema), asyncControllerHandler(addExpenseController));
 userRoutes.get('/expenses', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(getExpensesController));
 userRoutes.delete('/expenses/:id', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(deleteExpenseController));
