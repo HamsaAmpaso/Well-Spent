@@ -1,18 +1,21 @@
-import { signupAPICaller } from "./api-callers.js";
-import { loginAPICaller } from "./api-callers.js";
-import { logoutAPICaller } from "./api-callers.js";
-import { addExpenseAPICaller } from "./api-callers.js";
-import { getExpensesAPICaller } from "./api-callers.js";
-import { deleteExpenseAPICaller } from "./api-callers.js";
-import { editExpenseAPICaller } from "./api-callers.js";
-import { dashboardAPICaller } from "./api-callers.js";
-import { rankingsAPICaller } from "./api-callers.js";
-import { archivedAPICaller } from "./api-callers.js";
-import { restoreExpenseAPICaller } from "./api-callers.js";
-import { updateBudgetAPICaller } from "./api-callers.js";
-import { thisMonthReportAPICaller } from "./api-callers.js";
-import { getUSersAPICaller } from "./api-callers.js";
-import { banUserAPICaller } from "./api-callers.js";
+// ✅ CORRECT:
+import { 
+  signupAPICaller,
+  loginAPICaller,
+  logoutAPICaller,
+  addExpenseAPICaller,
+  getExpensesAPICaller,
+  deleteExpenseAPICaller,
+  editExpenseAPICaller,
+  dashboardAPICaller,
+  rankingsAPICaller,
+  archivedAPICaller,
+  restoreExpenseAPICaller,
+  updateBudgetAPICaller,
+  thisMonthReportAPICaller,
+  getUSersAPICaller,
+  banUserAPICaller 
+} from "./api-callers.js";
 
 (()=>{
    const nav = document.querySelector(".mobile-nav");
