@@ -14,7 +14,9 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js"
+    "test": "node server.js",
+     "start": "node src/server.js"
+
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

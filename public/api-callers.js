@@ -735,7 +735,7 @@ export async function thisMonthReportAPICaller(){
             return refreshing;
           }
 
-        const response2 = await await fetch('http://127.0.0.1:3000/api/report', {
+        const response2 =  await fetch('http://127.0.0.1:3000/api/report', {
             method: "GET",
             credentials: "include",
             headers: {
@@ -796,7 +796,7 @@ export async function getUSersAPICaller(){
             return refreshing;
           }
 
-        const response2 = await await fetch(`http://127.0.0.1:3000/api/users`, {
+        const response2 =  await fetch(`http://127.0.0.1:3000/api/users`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -857,7 +857,7 @@ export async function banUserAPICaller(userid){
             return refreshing;
           }
 
-        const response2 = await await fetch(`http://127.0.0.1:3000/api/users/${userid}`, {
+        const response2 =  await fetch(`http://127.0.0.1:3000/api/users/${userid}`, {
             method: "DELETE",
             credentials: "include",
             headers: {

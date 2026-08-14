@@ -35,23 +35,17 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-/*app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Private-Network', 'true');
-  
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
-  }
-  next();
-});*/
+
 app.use(cookieParser());
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
 app.use(centralizedErrorMiddleware);
+const PORT = process.env.PORT || 3000;
 async function startServer(){
     try{
        await pool.connect();
-       app.listen(3000, ()=>{
+       app.listen(PORT, ()=>{
          console.log("Well Spent server is running.");
        });
     }catch(err){
