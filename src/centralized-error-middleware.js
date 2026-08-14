@@ -1,4 +1,4 @@
-export function centralizedErrorMiddleware(err, res, req, next){
+export function centralizedErrorMiddleware(err, req, res, next){
     return res.status(500).json({
         success: false,
         message: "Error from centralizzed error middleware!",

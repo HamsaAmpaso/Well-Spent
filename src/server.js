@@ -9,6 +9,7 @@ import { authRoutes } from './auth/auth.routes.js';
 import { userRoutes } from './user/user.routes.js';
 import { adminRoutes } from './admin/admin.routes.js';
 const app = express();
+app.set("trust proxy", 1);
 app.use(express.json());
 const allowedOrigins = [
   'https://well-spent.hamsaampaso1.workers.dev',
