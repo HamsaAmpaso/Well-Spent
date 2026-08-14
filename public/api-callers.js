@@ -1,6 +1,11 @@
+const API_URL =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:3000"
+        : "https://well-spent-5.onrender.com";
 export async function signupAPICaller(username, password){
     try{
-       const response = await fetch('http://127.0.0.1:3000/api/signup', {
+       const response = await fetch(`${API_URL}/api/signup`, {
          method: "POST",
          credentials: "include",
          headers: {
@@ -34,7 +39,7 @@ export async function signupAPICaller(username, password){
 }
 export async function loginAPICaller(username, password){
     try{
-        const response = await fetch('http://127.0.0.1:3000/api/login', {
+        const response = await fetch(`${API_URL}/api/login`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -69,7 +74,7 @@ export async function loginAPICaller(username, password){
 
 export async function logoutAPICaller(){
     try{
-       const response = await fetch('http://127.0.0.1:3000/api/logout', {
+       const response = await fetch(`${API_URL}/api/logout`, {
         method: "GET",
         credentials: "include"
        });
@@ -92,7 +97,7 @@ export async function logoutAPICaller(){
 
 export async function refreshAPICaller(){
     try{
-        const response = await fetch('http://127.0.0.1:3000/api/refresh', {
+        const response = await fetch(`${API_URL}/api/refresh`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -124,7 +129,7 @@ export async function refreshAPICaller(){
 
 export async function addExpenseAPICaller(name, day, amount, category){
     try{
-       const response = await fetch('http://127.0.0.1:3000/api/expenses', {
+       const response = await fetch(`${API_URL}/api/expenses`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -156,19 +161,19 @@ export async function addExpenseAPICaller(name, day, amount, category){
             return refreshing;
           }
 
-          const response2 = await fetch('http://127.0.0.1:3000/api/expenses', {
-            method: "POST",
-            credentials: "include",
-            headers: {
-               "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              name: name,
-              day: day,
-              amount: amount,
-              category: category
-            })
-          });
+          const response2 = await fetch(`${API_URL}/api/expenses`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            day: day,
+            amount: amount,
+            category: category
+        })
+       });
 
           const data2 = await response2.json();
           data2.forErrorBox = false;
@@ -198,7 +203,7 @@ export async function addExpenseAPICaller(name, day, amount, category){
 
 export async function getExpensesAPICaller(){
     try{
-        const response = await fetch('http://127.0.0.1:3000/api/expenses', {
+        const response = await fetch(`${API_URL}/api/expenses`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -224,14 +229,14 @@ export async function getExpensesAPICaller(){
             return refreshing;
           }
 
-          const response2 = await fetch('http://127.0.0.1:3000/api/expenses', {
+          const response2 = await fetch(`${API_URL}/api/expenses`, {
             method: "GET",
             credentials: "include",
             headers: {
                "Content-Type": "application/json"
             }
-           
-          });
+
+        });
 
           const data2 = await response2.json();
           console.log("refreshed-get-expenses");
@@ -256,7 +261,7 @@ export async function getExpensesAPICaller(){
 
 export async function deleteExpenseAPICaller(expenseid){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/expenses/${expenseid}`, {
+        const response = await fetch(`${API_URL}/api/expenses/${expenseid}`, {
             method: "DELETE",
             credentials: "include",
             headers: {
@@ -282,7 +287,7 @@ export async function deleteExpenseAPICaller(expenseid){
             return refreshing;
           }
 
-         const response2 = await fetch(`http://127.0.0.1:3000/api/expenses/${expenseid}`, {
+         const response2 = await fetch(`${API_URL}/api/expenses/${expenseid}`, {
             method: "DELETE",
             credentials: "include",
             headers: {
@@ -318,7 +323,7 @@ export async function deleteExpenseAPICaller(expenseid){
 
 export async function editExpenseAPICaller(name, day, amount, category, expenseid){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/expenses/${expenseid}`, {
+        const response = await fetch(`${API_URL}/api/expenses/${expenseid}`, {
             method: "PATCH",
             credentials: "include",
             headers: {
@@ -350,7 +355,7 @@ export async function editExpenseAPICaller(name, day, amount, category, expensei
             return refreshing;
           }
 
-        const response2 = await fetch(`http://127.0.0.1:3000/api/expenses/${expenseid}`, {
+        const response2 = await fetch(`${API_URL}/api/expenses/${expenseid}`, {
             method: "PATCH",
             credentials: "include",
             headers: {
@@ -393,7 +398,7 @@ export async function editExpenseAPICaller(name, day, amount, category, expensei
 }
 export async function dashboardAPICaller(){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/dashboard`, {
+        const response = await fetch(`${API_URL}/api/dashboard`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -420,7 +425,7 @@ export async function dashboardAPICaller(){
             return refreshing;
           }
 
-        const response2 = await fetch(`http://127.0.0.1:3000/api/dashboard`, {
+        const response2 = await fetch(`${API_URL}/api/dashboard`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -460,7 +465,7 @@ export async function dashboardAPICaller(){
 
 export async function rankingsAPICaller(){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/rankings`, {
+        const response = await fetch(`${API_URL}/api/rankings`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -485,7 +490,7 @@ export async function rankingsAPICaller(){
             return refreshing;
           }
 
-        const response2 = await fetch(`http://127.0.0.1:3000/api/rankings`, {
+        const response2 = await fetch(`${API_URL}/api/rankings`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -520,7 +525,7 @@ export async function rankingsAPICaller(){
 }
 export async function archivedAPICaller(){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/archives`, {
+        const response = await fetch(`${API_URL}/api/archives`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -545,7 +550,7 @@ export async function archivedAPICaller(){
             return refreshing;
           }
 
-        const response2 = await fetch(`http://127.0.0.1:3000/api/archives`, {
+        const response2 = await fetch(`${API_URL}/api/archives`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -583,7 +588,7 @@ export async function archivedAPICaller(){
 }
 export async function restoreExpenseAPICaller(expenseid){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/archives/${expenseid}`, {
+        const response = await fetch(`${API_URL}/api/archives/${expenseid}`, {
             method: "PATCH",
             credentials: "include",
             headers: {
@@ -608,7 +613,7 @@ export async function restoreExpenseAPICaller(expenseid){
             return refreshing;
           }
 
-        const response2 = await fetch(`http://127.0.0.1:3000/api/archives/${expenseid}`, {
+        const response2 = await fetch(`${API_URL}/api/archives/${expenseid}`, {
             method: "PATCH",
             credentials: "include",
             headers: {
@@ -643,7 +648,7 @@ export async function restoreExpenseAPICaller(expenseid){
 }
 export async function updateBudgetAPICaller(budget){
     try{
-        const response = await fetch('http://127.0.0.1:3000/api/budget', {
+        const response = await fetch(`${API_URL}/api/budget`, {
             method: "PATCH",
             credentials: "include",
             headers: {
@@ -671,7 +676,7 @@ export async function updateBudgetAPICaller(budget){
             return refreshing;
           }
 
-        const response2 = await fetch('http://127.0.0.1:3000/api/budget', {
+        const response2 = await fetch(`${API_URL}/api/budget`, {
             method: "PATCH",
             credentials: "include",
             headers: {
@@ -710,7 +715,7 @@ export async function updateBudgetAPICaller(budget){
 }
 export async function thisMonthReportAPICaller(){
     try{
-        const response = await fetch('http://127.0.0.1:3000/api/report', {
+        const response = await fetch(`${API_URL}/api/report`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -735,7 +740,7 @@ export async function thisMonthReportAPICaller(){
             return refreshing;
           }
 
-        const response2 =  await fetch('http://127.0.0.1:3000/api/report', {
+        const response2 =  await fetch(`${API_URL}/api/report`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -771,7 +776,7 @@ export async function thisMonthReportAPICaller(){
 
 export async function getUSersAPICaller(){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/users`, {
+        const response = await fetch(`${API_URL}/api/users`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -796,7 +801,7 @@ export async function getUSersAPICaller(){
             return refreshing;
           }
 
-        const response2 =  await fetch(`http://127.0.0.1:3000/api/users`, {
+        const response2 =  await fetch(`${API_URL}/api/users`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -832,7 +837,7 @@ export async function getUSersAPICaller(){
 }
 export async function banUserAPICaller(userid){
     try{
-        const response = await fetch(`http://127.0.0.1:3000/api/users/${userid}`, {
+        const response = await fetch(`${API_URL}/api/users/${userid}`, {
             method: "DELETE",
             credentials: "include",
             headers: {
@@ -857,7 +862,7 @@ export async function banUserAPICaller(userid){
             return refreshing;
           }
 
-        const response2 =  await fetch(`http://127.0.0.1:3000/api/users/${userid}`, {
+        const response2 =  await fetch(`${API_URL}/api/users/${userid}`, {
             method: "DELETE",
             credentials: "include",
             headers: {
