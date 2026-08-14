@@ -12,9 +12,9 @@
   "license": "MIT",
   "author": "Hamsa Ampaso",
   "type": "module",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "node server.js",
+    "test": "node src/server.js",
      "start": "node src/server.js"
 
   },
