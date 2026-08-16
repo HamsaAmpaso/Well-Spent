@@ -322,13 +322,17 @@
     }
     .archives-div{
         width: 90%;
+
     }
     .archives-div .slot p{
         max-width: 60px;
     }
+    .archives-div .slot{
+        padding: 1.2em;
+    }
     .archives-div .slot .restore-btn{
         height: 35px;
-        width: 45px;
+        width: 45%;
     }
    
     .report-div{
@@ -350,6 +354,14 @@
         gap: 3vw;
 
     }
+    .users-div .slot p{
+        max-width: 80px;
+    }
+    
+.users-div .slot .ban-btn{
+    height: 95%;
+    width: 55%;
+}
 
     
    

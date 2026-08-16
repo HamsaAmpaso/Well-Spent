@@ -21,15 +21,15 @@
     animation-fill-mode: forwards;
 }
 .users-div .slot{
-    height: 7%;
+    height: 10%;
     width: 100%;
     background-color: var(--white);
     box-shadow: 2px 3px 4px var(--white-shadow);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     justify-content: flex-start;
     align-content: center;
-    justify-items: center;
+    justify-items: flex-start;
     align-items: center;
     padding: clamp(0.5rem, 2vw, 2rem);
     transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -42,6 +42,8 @@
     color: var(--black);
     text-shadow: 2px 3px 3px var(--white-shadow);
     font-size: clamp(0.5rem, 1.1vw, 1rem);
+    max-width: 130px;
+    white-space: wrap;
 }
 .logged-in-div.users h2{
     font-family: var(--heading-font);
@@ -55,8 +57,8 @@
     border-radius: 0px 150px 0px 0px;
 }
 .users-div .slot .ban-btn{
-    height: 90%;
-    width: 40%;
+    height: 85%;
+    width:35%;
     display: flex;
     justify-content: center;
     align-items: center;
