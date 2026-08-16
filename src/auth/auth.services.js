@@ -51,17 +51,7 @@ export async function signupService(username, password){
         text: `Hello ${username} you have successfully created your well spent account thankyou!`
        });
 
-       if(error){
-        console.log(error);
-        return {
-            signup: false,
-            success: false,
-            userAlreadyExists: true,
-            accessToken: null,
-            refreshToken: null,
-            validationError: false
-          };
-       }
+     
 
        
 
