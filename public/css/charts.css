@@ -1,0 +1,51 @@
+.logged-in-div.charts{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vh;
+
+  
+}
+.logged-in-div.charts h2{
+    font-family: var(--heading-font);
+    font-size: clamp(1.2rem, 1.7vw, 1.7rem);
+    color: var(--black);
+    text-align: center;
+    text-shadow: 2px 3px 4px var(--white-shadow);
+    margin-bottom: 1vh;
+}
+.charts-div{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+  animation-name: slide;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  flex-direction: column;
+}
+.charts-div .canvas-container{
+  height: 55%;
+  width: 100%;
+}
+.charts-div .canvas-container2{
+  height: 75%;
+  width: 100%;
+}
+.charts-div .canva{
+  box-shadow: 2px 3px 3px var(--white-shadow);
+}
+.charts-div h3{
+    font-family: var(--heading-font);
+    font-size: clamp(0.8rem, 1.3vw, 1.3rem);
+    color: var(--black);
+    text-align: center;
+    text-shadow: 2px 3px 4px var(--white-shadow);
+    margin-bottom: 1vh;
+}

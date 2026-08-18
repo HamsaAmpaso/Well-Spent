@@ -8,6 +8,7 @@ import { archivesService } from "./user.services.js";
 import { restoreExpenseService } from "./user.services.js";
 import { updateMonthlyBudgetService } from "./user.services.js";
 import { thisMonthReportService } from "./user.services.js";
+import { expenseDaysChartService } from "./user.services.js";
 export async function addExpenseController(req, res, next){
     try{
         const name = req.body.name;
@@ -122,7 +123,15 @@ export async function thisMonthReportController(req, res, next){
         const report = await thisMonthReportService(userid);
         res.status(200).json(report);
     }catch(err){
-        console.log(err);
-        throw err;
+        next(err)
+    }
+}
+export async function expenseDayChartController(req, res, next){
+    try{
+      const userid = req.user.user;
+      const data = await expenseDaysChartService(userid);
+      res.status(200).json(data);
+    }catch(err){
+      next(err);
     }
 }

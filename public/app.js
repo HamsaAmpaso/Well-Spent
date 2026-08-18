@@ -1,4 +1,4 @@
-// ✅ CORRECT:
+
 import { 
   signupAPICaller,
   loginAPICaller,
@@ -14,7 +14,8 @@ import {
   updateBudgetAPICaller,
   thisMonthReportAPICaller,
   getUSersAPICaller,
-  banUserAPICaller 
+  banUserAPICaller,
+  expenseDayChartAPICaller
 } from "./api-callers.js";
 
 (()=>{
@@ -145,13 +146,173 @@ import {
    const adminDashboardBTN = document.querySelector("#admin-dashboard");
    const usersErrorBox = document.querySelector("#users-error-box");
    const closeUsersErrorBox = document.querySelector(".ok-users");
+
+   const viewChartsBTN = document.querySelector("#view-charts");
+   const chartsErrorBox = document.querySelector("#charts-error-box");
+   const closeChartsErrorBox = document.querySelector(".ok-charts");
+   
+   if(status === 'logged-in'){
+     mainElement.classList.add("hide");
+     bodyElement.classList.add("logged-in");
+     sidebar.classList.add("open");
+     loginDiv.classList.add("logged-in-mode");
+     navDesktop.classList.add("hide");
+     signupBoxShowDesktop.classList.add("hide");
+     signupBoxShowMobile.classList.add("hide");
+     loginBoxShowDesktop.classList.add("hide");
+     loginBpxShowMobile.classList.add("hide");
+     featuresBTN.classList.add("hide");
+     footerBTN.classList.add("hide");
+     menu.classList.add("logged-in");
+     openSidebarBTN.classList.add("logged-in");
+     getExpenseWrapper();
+   }
+
    const role = localStorage.getItem("role");
    if(role === "admin"){
      adminDashboardBTN.classList.add("logged-in");
+   }
+
+   function renderCharts(labels, datas, categories, totals, months, monthlyTotals){
+      loginDiv.innerHTML = "";
+      loginDiv.classList.remove("view-expenses");
+      loginDiv.classList.remove("dashboard");
+      loginDiv.classList.remove("rankings");
+      loginDiv.classList.remove("archives");
+      loginDiv.classList.remove("report");
+      loginDiv.classList.add("charts");
+      const h2 = document.createElement("h2");
+      h2.textContent = 'Expense Charts';
+      loginDiv.appendChild(h2);
+      const canvas_div = document.createElement("div");
+      canvas_div.classList.add("charts-div");
+      loginDiv.appendChild(canvas_div);
+      const canvas = document.createElement("canvas");
+      canvas.classList.add("canva");
+      const h3 = document.createElement("h3");
+      h3.textContent = 'Your Daily Expense Chart';
+      canvas_div.appendChild(h3);
+      const container = document.createElement("div");
+      container.classList.add("canvas-container");
+      canvas_div.appendChild(container);
+      container.appendChild(canvas);
+      const expenseChart = new Chart(canvas, {
+        type: "bar",
+
+        data: {
+            labels: labels,
+
+            datasets: [
+                {
+                    label: "Daily Expenses",
+                    data: datas
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+      const h32 = document.createElement("h3");
+      h32.textContent = 'Your Expense Total Pie';
+      canvas_div.appendChild(h32);
+      const pie_container = document.createElement("div");
+      pie_container.classList.add("canvas-container2");
+      canvas_div.appendChild(pie_container);
+      const pie = document.createElement("canvas");
+      pie_container.appendChild(pie);
+       const expenseChart2 = new Chart(pie, {
+        type: "pie",
+
+        data: {
+            labels: categories,
+
+            datasets: [
+                {
+                    label: "Expense Total Per Categories",
+                    data: totals
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    const h33 = document.createElement("h3");
+      h33.textContent = 'Your Expense Total Per Month';
+      canvas_div.appendChild(h33);
+    const monthly_container = document.createElement("div");
+    monthly_container.classList.add("canvas-container2");
+    canvas_div.appendChild(monthly_container);
+    const monthly_bar = document.createElement("canvas");
+    monthly_container.appendChild(monthly_bar);
+       const expenseChart3 = new Chart(monthly_bar, {
+        type: "bar",
+
+        data: {
+            labels: months,
+
+            datasets: [
+                {
+                    label: "Monthly Total Expense",
+                    data: monthlyTotals
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
 
 
      
+      
    }
+
+   viewChartsBTN.addEventListener("click", async ()=>{
+    try{
+      sidebar.classList.remove("opened");
+      openSidebarBTN.classList.remove("hide");
+      bodyElement.classList.remove("sidebar-opened");
+      const data = await expenseDayChartAPICaller();
+      if(!data.success && !data.daysChart && data.forErrorBox){
+        chartsErrorBox.classList.add("showing");
+        overlay.classList.add("active");
+        sidebar.classList.remove("opened");
+        openSidebarBTN.classList.remove("hide");
+        bodyElement.classList.remove("sidebar-opened");
+        return;
+      }
+      const labels = data.rows.map(row => new Date(row.day).toLocaleDateString());
+      const datas = data.rows.map(row => Number(row.totalThisDay));
+      const categories_for_pie = data.pie.map(p => p.category);
+      const totals = data.pie.map(p => p.total);
+      const months = data.monthlyTotal.map(m => m.month);
+      const monthlyTotals = data.monthlyTotal.map(m => m.total);
+      renderCharts(labels, datas, categories_for_pie, totals, months, monthlyTotals);
+     
+
+    }catch(err){
+      chartsErrorBox.classList.add("showing");
+      overlay.classList.add("active");
+      sidebar.classList.remove("opened");
+      openSidebarBTN.classList.remove("hide");
+      bodyElement.classList.remove("sidebar-opened");
+    }
+   });
+
+   closeChartsErrorBox.addEventListener("click", ()=>{
+      chartsErrorBox.classList.remove("showing");
+      overlay.classList.remove("active");
+   })
 
    closeBanErrorBox.addEventListener("click", ()=>{
     banErrorBox.classList.remove("showing");
@@ -1068,22 +1229,7 @@ import {
     }
    }
 
-   if(status === 'logged-in'){
-     mainElement.classList.add("hide");
-     bodyElement.classList.add("logged-in");
-     sidebar.classList.add("open");
-     loginDiv.classList.add("logged-in-mode");
-     navDesktop.classList.add("hide");
-     signupBoxShowDesktop.classList.add("hide");
-     signupBoxShowMobile.classList.add("hide");
-     loginBoxShowDesktop.classList.add("hide");
-     loginBpxShowMobile.classList.add("hide");
-     featuresBTN.classList.add("hide");
-     footerBTN.classList.add("hide");
-     menu.classList.add("logged-in");
-     openSidebarBTN.classList.add("logged-in");
-     getExpenseWrapper();
-   }
+   
 
    closeGetExpensesErrorBox.addEventListener("click", ()=>{
        getExpensesErrorBox.classList.remove("showing");
@@ -1443,6 +1589,7 @@ import {
             loginDiv.classList.remove("monthly");
             adminDashboardBTN.classList.remove("logged-in");
             loginDiv.classList.remove("users");
+            loginDiv.classList.remove("charts");
             localStorage.setItem("role", "none");
 
         }
@@ -1954,6 +2101,7 @@ import {
     reportError.classList.remove("showing");
     usersErrorBox.classList.remove("showing");
     banErrorBox.classList.remove("showing");
+    chartsErrorBox.classList.remove("showing");
     
 
     

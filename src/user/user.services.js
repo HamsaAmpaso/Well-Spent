@@ -34,6 +34,8 @@ import { housingAndUtilitiesTotalThisMonthRepository } from "./user.repositories
 import { educationTotalThisMonthRepository } from "./user.repositories.js";
 import { healthTotalThisMonthRepository } from "./user.repositories.js";
 import { othersTotalThisMonthRepository } from "./user.repositories.js";
+
+import { expenseDaysChartRepository } from "./user.repositories.js";
 export async function addExpenseService(user, name, day, amount, category){
     try{
       const userid = user.user;
@@ -182,6 +184,23 @@ export async function thisMonthReportService(userid){
       health: health,
       others: others
     }
+  }catch(err){
+    console.log(err);
+    throw err;
+  }
+}
+/*export async function barChartService(userid){
+  try{
+    const foodTotal = await foodTotalRepository(userid)
+  }catch(err){
+    console.log(err);
+    throw err;
+  }
+}*/
+export async function expenseDaysChartService(userid){
+  try{
+    const data = await expenseDaysChartRepository(userid);
+    return data;
   }catch(err){
     console.log(err);
     throw err;

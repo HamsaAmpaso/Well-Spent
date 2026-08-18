@@ -896,5 +896,64 @@ export async function banUserAPICaller(userid){
         }
     }
 }
+export async function expenseDayChartAPICaller(){
+   try{
+      const response = await fetch(`${API_URL}/api/days-chart`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        }
+      });
+      const data = await response.json();
+      if(data.tokenExpired){
+          const refreshing = await refreshAPICaller();
+          if(!refreshing.success && !refreshing.noRefreshToken && !refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+          if(!refreshing.success && !refreshing.noRefreshToken && refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+          if(!refreshing.success && refreshing.noRefreshToken && !refreshing.refreshTokenNotMatch){
+            refreshing.forErrorBox = true;
+            return refreshing;
+          }
+
+        const response2 =  await fetch(`${API_URL}/api/days-chart`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        }
+      });
+
+        const data2 = await response2.json();
+        console.log("refreshed-budget-expense");
+        console.log(response2.status);
+        console.log(data2);
+        data2.forErrorBox = false;
+        return data2;
+
+
+        }
+        if(!response.ok){
+          data.forErrorBox = true;
+          return data;
+        }
+       
+        data.forErrorBox = false;
+        return data;
+   }catch(err){
+      return {
+        success: false,
+        daysChart: false,
+        forErrorBox: true
+      }
+   }
+}
 
 

@@ -21,6 +21,7 @@ export function centralizedErrorMiddleware(err, req, res, next){
         budget: false,
         monthlyReport: false,
         users: false,
-        ban: false
+        ban: false,
+        daysChart: false
     });
 }

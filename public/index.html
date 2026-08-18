@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Acme&family=Amatic+SC:wght@400;700&family=Anton&family=Bangers&family=Bebas+Neue&family=Bitcount+Grid+Single:wght@100..900&family=Bitcount+Prop+Double+Ink:wght@100..900&family=Caprasimo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Just+Another+Hand&family=Manrope:wght@200..800&family=Modak&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="app.js" defer></script>
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/base.css" />
@@ -37,12 +38,12 @@
     <link rel="stylesheet" href="./css/archived-expenses.css" />
     <link rel="stylesheet" href="./css/dashboard.css" />
     <link rel="stylesheet" href="./css/monthly.css" />
-    <link rel="stylesheet" href="./css/users.css">
+    <link rel="stylesheet" href="./css/charts.css">
+    <link rel="stylesheet" href="./css/users.css" />
     <link rel="stylesheet" href="./css/classes.css" />
     <link rel="stylesheet" href="./css/animations.css" />
     <link rel="stylesheet" href="./css/mobile.css" />
     <link rel="icon" href="./images/icon.png" />
-    
   </head>
   <body class="body">
     <div class="overlay"></div>
@@ -309,6 +310,11 @@
       <p>We couldn't ban this user of Well Spent. Please try again.</p>
       <button class="ok-ban">Ok</button>
     </div>
+    <div id="charts-error-box" class="error-box">
+      <h2>Loading Charts Failed</h2>
+      <p>We couldn't load your expense charts at the moment. Please try again.</p>
+      <button class="ok-charts">Ok</button>
+    </div> 
     <div id="archived-error-box" class="error-box">
       <h2>Loading Archived Expenses Failed</h2>
       <p>We couldn't load your expense in archived. Please try again.</p>
@@ -390,6 +396,18 @@
             />
           </svg>
         </div>
+          <div data-tooltip="VIEW CHARTS" id="view-charts" class="btns">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            
+            viewBox="0 -960 960 960"
+            
+          >
+            <path
+              d="m296-320 122-122 80 80 142-141v63h80v-200H520v80h63l-85 85-80-80-178 179 56 56Zm-96 200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"
+            />
+          </svg>
+        </div>
         <div
           data-tooltip="EXPENSE RANKINGS"
           id="view-expense-rankings"
@@ -401,6 +419,7 @@
             />
           </svg>
         </div>
+      
         <div
           data-tooltip="ARCHIVED EXPENSES"
           id="view-archived-expenses"
@@ -435,12 +454,7 @@
           </svg>
         </div>
         <div class="btns" id="admin-dashboard" data-tooltip="ADMIN DASHBOARD">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            
-            viewBox="0 -960 960 960"
-           
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
             <path
               d="M609-389q-29-29-29-71t29-71q29-29 71-29t71 29q29 29 29 71t-29 71q-29 29-71 29t-71-29ZM480-160v-56q0-24 12.5-44.5T528-290q36-15 74.5-22.5T680-320q39 0 77.5 7.5T832-290q23 9 35.5 29.5T880-216v56H480ZM287-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm113-113ZM80-160v-112q0-34 17-62.5t47-43.5q60-30 124.5-46T400-440q35 0 70 6t70 14l-34 34-34 34q-18-5-36-6.5t-36-1.5q-58 0-113.5 14T180-306q-10 5-15 14t-5 20v32h240v80H80Zm320-80Zm56.5-343.5Q480-607 480-640t-23.5-56.5Q433-720 400-720t-56.5 23.5Q320-673 320-640t23.5 56.5Q367-560 400-560t56.5-23.5Z"
             />

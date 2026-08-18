@@ -363,6 +363,10 @@
     width: 55%;
 }
 
+#view-charts::before{
+    transform: translateX(-81%);
+}
+
     
    
 

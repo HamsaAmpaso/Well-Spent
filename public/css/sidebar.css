@@ -104,6 +104,10 @@
 #admin-dashboard::before{
     transform: translateX(-72%);
 }
+#view-charts::before{
+    transform: translateX(-75%);
+}
+
 #admin-dashboard{
     display: none;
 }

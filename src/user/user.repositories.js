@@ -315,6 +315,43 @@ export async function othersTotalThisMonthRepository(userid){
         throw err;
     }
 }
+export async function expenseDaysChartRepository(userid){
+    try{
+       
+        const expensePerDay = await pool.query(`SELECT day, COALESCE(SUM(amount), 0) AS "totalThisDay" FROM expenses WHERE deleted_at IS NULL AND belongs_to = $1  GROUP BY day ORDER BY day ASC`, [userid]);
+        const categoryTotals = await pool.query(`
+            SELECT
+                category AS "category",
+                COALESCE(SUM(amount), 0) AS "total"
+            FROM expenses
+            WHERE deleted_at IS NULL
+              AND belongs_to = $1
+            GROUP BY category
+            ORDER BY total DESC
+        `, [userid]);
+
+        const monthly_total = await pool.query(`SELECT
+         TO_CHAR(day, 'YYYY-MM') AS month,
+         SUM(amount) AS total
+         FROM expenses
+         WHERE deleted_at IS NULL
+         AND belongs_to = $1
+         GROUP BY TO_CHAR(day, 'YYYY-MM')
+         ORDER BY month ASC;`, [userid]);
+
+        return {
+            rowCount: expensePerDay.rowCount,
+            rows: expensePerDay.rows,
+            success: true,
+            daysChart: true,
+            pie: categoryTotals.rows,
+            monthlyTotal: monthly_total.rows
+        }
+    }catch(err){
+        console.log(err);
+        throw err;
+    }
+}
 
 
 

@@ -17,6 +17,7 @@ import { updateMonthlyBudgetController } from './user.controllers.js';
 import { thisMonthReportController } from './user.controllers.js';
 import { authorize } from '../authorization.js';
 import { checkOrigin } from '../origin-checker-middleware.js';
+import { expenseDayChartController } from './user.controllers.js';
 export const userRoutes = express.Router();
 //userRoutes.use(checkOrigin);
 userRoutes.post('/expenses', authenticationMiddleware, authorize("user", "admin"), validator(expenseSchema), asyncControllerHandler(addExpenseController));
@@ -29,3 +30,4 @@ userRoutes.get('/archives', authenticationMiddleware, authorize("user", "admin")
 userRoutes.patch('/archives/:id', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(restoreExpenseController));
 userRoutes.patch('/budget', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(updateMonthlyBudgetController));
 userRoutes.get('/report', authenticationMiddleware, authorize("user", "admin"),  asyncControllerHandler(thisMonthReportController));
+userRoutes.get('/days-chart', authenticationMiddleware, authorize("user", "admin"), asyncControllerHandler(expenseDayChartController));
